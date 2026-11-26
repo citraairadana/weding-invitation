@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #d4af37;
+    --dark-color: #2c3e50;
+    --bg-color: #fcfbfa;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: #444;
+    text-align: center;
+}
+.cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Latar belakang cover diubah menjadi nuansa cokelat keemasan hangat */
+    background: linear-gradient(rgba(60, 50, 35, 0.65), rgba(60, 50, 35, 0.65)), url('https://share.google/dpDpz8uOij1TE1iVG');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.cover h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem; 
+    margin: 10px 0;
+    color: #f3e5ab;
+}
+.kotak-tamu {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 20px 35px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    margin-top: 20px;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+.kotak-tamu p { margin: 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+.kotak-tamu h3 { margin: 5px 0 0 0; font-size: 1.5rem; color: #fff; word-break: break-word; }
+.btn-buka {
+    background: linear-gradient(135deg, #d4af37, #aa771c);
+    color: white;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 25px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: 0.3s;
+}
+.btn-buka:hover { transform: scale(1.05); }
+
+.konten {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
+section {
+    background: white;
+    padding: 30px; 
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: left;
+    border: 1px solid #f0e6d2;
+    box-sizing: border-box;
+}
+section::before {
+    content: "❀ ✿ ❀";
+    display: block;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 6px;
+}
+section::after {
+    content: "— ❁ —";
+    display: block;
+    text-align: center;
+    color: #e0cfa9;
+    font-size: 16px;
+    margin-top: 25px;
+}
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem; 
+    text-align: center;
+    color: #b78103;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.foto-mempelai {
+    width: 170px; 
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin: 0 auto 15px auto;
+    display: block;
+}
+.pasangan-nama { text-align: center; font-size: 1.5rem; font-weight: 600; color: var(--dark-color); }
+
+.countdown-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 6px; 
+    margin-top: 20px; 
+    flex-wrap: wrap;
+}
+.countdown-box {
+    background: #fdfaf2;
+    border: 1px solid #e6d5a9;
+    border-radius: 8px;
+    padding: 10px 6px;
+    flex: 1;
+    min-width: 55px; 
+    max-width: 85px;
+    text-align: center;
+}
+.countdown-box span { display: block; font-size: 1.3rem; font-weight: 600; color: #b78103; }
+.countdown-box small { font-size: 11px; color: #777; }
+
+label { font-weight: 600; font-size: 15px; color: #666; display: block; margin-top: 12px; }
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #faf9f6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+button[type="submit"] {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+}
+button[type="submit"]:hover { background-color: #b78103; }
+.btn-musik {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 999;
+    display: none;
+}
+
+.galeri-section {
+    text-align: center;
+}
+
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.galeri-item {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #f0e6d2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 1 / 1; 
+}
+
+.galeri-item:hover {
+    transform: scale(1.03);
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .konten {
+        max-width: 100%;
+        padding: 12px;
+    }
+    section {
+        padding: 18px;
+    }
+    .cover h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+#modal-galeri {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+}
+
+#img-perbesar {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TAMBAHAN STYLE UNTUK KOTAK UCAPAN DI BAWAH FORM --- */
+#container-pesan {
+    margin-top: 15px;
+    padding-right: 5px;
+}
+
+/* Efek scrollbar halus pada daftar ucapan jika sudah banyak */
+#container-pesan::-webkit-scrollbar {
+    width: 6px;
+}
+#container-pesan::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+#container-pesan::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+#container-pesan::-webkit-scrollbar-thumb:hover {
+    background: #b78103;
+}

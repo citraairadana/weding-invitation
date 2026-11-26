@@ -1,0 +1,179 @@
+<?php
+// Jika kamu ingin tetap menyertakan koneksi.php untuk bagian lain (misal jika ada data lain), biarkan baris ini. 
+// Jika tidak ada, boleh di-comment.
+include 'koneksi.php';
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Raka & Rika</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio & Tombol Musik -->
+    <audio id="bg-music" loop>
+        <source src="lagu.mp3" type="audio/mp3">
+    </audio>
+    <button id="btn-musik" class="btn-musik" onclick="toggleMusik()">🎵</button>
+
+    <!-- Cover Depan Undangan -->
+    <div id="cover" class="cover">
+        <p style="letter-spacing: 2px; text-transform: uppercase;">The Wedding Of</p>
+        <h1>Raka & Rika</h1>
+        
+        <div class="kotak-tamu">
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h3 id="tampil-nama-tamu">Tamu Undangan</h3>
+        </div>
+
+        <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+
+    <!-- Konten Utama Undangan -->
+    <div id="konten" class="konten" style="display: none;">
+        
+        <!-- Bagian Kutipan Kasih -->
+        <section style="text-align: center;">
+            <h2>Kutipan Kasih</h2>
+            <p style="font-size: 20px; line-height: 2.2; color: #0e0c0c; margin-bottom: 20px; direction: rtl;">
+                وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ ۝٢١
+            </p>
+            <p style="font-family: 'Poppins', sans-serif; font-weight: 300; font-style: italic; color: #000000; line-height: 1.8; font-size: 14px; margin-bottom: 15px; padding: 0 15px;">
+                "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+            </p>
+            <p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px; color: #d4af37; letter-spacing: 1px;">
+                (QS. Ar-Rum: 21)
+            </p>
+        </section>
+
+        <!-- Bagian Mempelai Bahagia -->
+        <section>
+            <h2>Mempelai Bahagia</h2>
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="foto-mempelai">
+            <div class="pasangan-nama">Raka Baskara, S.Kom</div>
+            <p style="text-align: center; color: #777; margin-top:0; font-size: 13px;">Putra dari Bpk. Andi & Ibu Siti</p>
+            <hr style="border: 0; border-top: 1px dashed #ddd; margin: 15px 0;">
+            <div class="pasangan-nama">Rika Lestari, S.Pd</div>
+            <p style="text-align: center; color: #777; margin-top:0; font-size: 13px;">Putri dari Bpk. Budi & Ibu Rina</p>
+        </section>
+
+        <!-- Bagian Cerita Cinta Kami -->
+        <section>
+            <h2>Cerita Cinta Kami</h2>
+            <p style="font-size: 14px;"><strong>Awal Bertemu (2020)</strong><br><span style="color: #666; font-size: 13px;">Kami pertama kali bertemu saat kegiatan organisasi kampus di Jakarta.</span></p>
+            <p style="margin-top: 12px; font-size: 14px;"><strong>Lamaran & Menikah (2026)</strong><br><span style="color: #666; font-size: 13px;">Dengan restu orang tua, kami mantap melangkah ke jenjang pernikahan.</span></p>
+        </section>
+
+        <!-- Bagian Galeri Prewedding (Bisa diklik untuk memperbesar) -->
+        <section class="galeri-section">
+            <h2>Galeri Prewedding</h2>
+            <div class="galeri-grid">
+                <div class="galeri-item"><img src="asets/preweding 1.jpg" alt="Foto Prewedding 1"></div>
+                <div class="galeri-item"><img src="asets/preweding 2.jpg" alt="Foto Prewedding 2"></div>
+                <div class="galeri-item"><img src="asets/preweding 3.jpg" alt="Foto Prewedding 3"></div>
+                <div class="galeri-item"><img src="asets/preweding 4.jpg" alt="Foto Prewedding 4"></div>
+                <div class="galeri-item"><img src="asets/preweding 5.jpg" alt="Foto Prewedding 5"></div>
+                <div class="galeri-item"><img src="asets/preweding 6.jpg" alt="Foto Prewedding 6"></div>
+            </div>
+        </section>
+
+        <!-- Bagian Waktu & Tempat -->
+        <section style="text-align: center;">
+            <h2>Waktu & Tempat</h2>
+            <p style="font-size: 14px;"><strong>Hari/Tanggal:</strong> Minggu, 20 Desember 2026</p>
+            <p style="font-size: 14px;"><strong>Akad Nikah:</strong> 08.00 - 10.00 WIB</p>
+            <p style="font-size: 14px;"><strong>Resepsi:</strong> 11.00 WIB - Selesai</p>
+            <p style="font-size: 14px;"><strong>Lokasi:</strong> Gedung Serbaguna Grand Ballroom, Jakarta</p>
+
+            <div style="margin: 15px 0; border-radius: 10px; overflow: hidden; border: 1px solid #e0cfa9;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24009774648!2d106.75947355!3d-6.229728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Special%20Capital%20Region%20of%20Jakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                    width="100%" 
+                    height="220" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <a href="https://maps.google.com/?q=Jakarta" target="_blank" style="display: inline-block; background: #2c3e50; color: white; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-size: 13px; font-weight: 600; margin-top: 5px;">📍 Buka di Google Maps</a>
+
+            <div class="countdown-container" style="margin-top: 20px;">
+                <div class="countdown-box"><span id="hari">00</span><small>Hari</small></div>
+                <div class="countdown-box"><span id="jam">00</span><small>Jam</small></div>
+                <div class="countdown-box"><span id="menit">00</span><small>Menit</small></div>
+                <div class="countdown-box"><span id="detik">00</span><small>Detik</small></div>
+            </div>
+        </section>
+
+        <!-- Bagian Amplop Digital -->
+        <section style="text-align: center;">
+            <h2>Amplop Digital</h2>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika ingin memberikan tanda kasih, dapat melalui:
+            </p>
+
+            <div style="background: #fdfaf2; border: 1px solid #e6d5a9; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: left;">
+                <p style="margin: 0; font-size: 13px; color: #777;">Bank BCA</p>
+                <h3 id="rekening-bca" style="margin: 5px 0; font-size: 1.1rem; color: #2c3e50; font-family: 'Poppins', sans-serif;">1234567890</h3>
+                <p style="margin: 0; font-size: 13px; color: #555;">a.n. Raka Baskara</p>
+                <button type="button" onclick="salinTeks('1234567890', 'Nomor Rekening BCA berhasil disalin!')" style="background: #2980b9; color: white; border: none; padding: 6px 12px; border-radius: 5px; font-size: 12px; cursor: pointer; margin-top: 10px;">📋 Salin Rekening BCA</button>
+            </div>
+
+            <div style="background: #fdfaf2; border: 1px solid #e6d5a9; padding: 15px; border-radius: 10px; text-align: left;">
+                <p style="margin: 0; font-size: 13px; color: #777;">DANA / OVO</p>
+                <h3 id="rekening-dana" style="margin: 5px 0; font-size: 1.1rem; color: #2c3e50; font-family: 'Poppins', sans-serif;">081234567890</h3>
+                <p style="margin: 0; font-size: 13px; color: #555;">a.n. Rika Lestari</p>
+                <button type="button" onclick="salinTeks('081234567890', 'Nomor DANA/OVO berhasil disalin!')" style="background: #2980b9; color: white; border: none; padding: 6px 12px; border-radius: 5px; font-size: 12px; cursor: pointer; margin-top: 10px;">📋 Salin Nomor DANA</button>
+            </div>
+        </section>
+
+        <!-- Bagian Konfirmasi Kehadiran & Ucapan (Muncul di Bawah) -->
+        <section>
+            <h2>Konfirmasi Kehadiran & Ucapan</h2>
+            <form onsubmit="kirimKonfirmasi(event)">
+                <label>NAMA LENGKAP</label>
+                <input type="text" id="input-nama" placeholder="Masukkan nama Anda..." required>
+                
+                <label>KONFIRMASI KEHADIRAN</label>
+                <select id="input-kehadiran" required>
+                    <option value="Hadir">Hadir (Akan Datang)</option>
+                    <option value="Tidak Hadir">Maaf, Berhalangan Hadir</option>
+                </select>
+
+                <label>JUMLAH YANG HADIR</label>
+                <select id="input-jumlah" required>
+                    <option value="1 Orang">1 Orang</option>
+                    <option value="2 Orang">2 Orang</option>
+                </select>
+                
+                <label>DOA & UCAPAN</label>
+                <textarea id="input-pesan" rows="3" placeholder="Tuliskan doa terbaik untuk kedua mempelai..." required></textarea>
+                
+                <button type="submit">Kirim Konfirmasi & Ucapan</button>
+            </form>
+
+            <!-- Wadah Daftar Ucapan yang Masuk -->
+            <div id="daftar-ucapan" style="margin-top: 25px; text-align: left;">
+                <h3 style="font-size: 16px; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 5px; color: #2c3e50;">Ucapan & Konfirmasi Tamu</h3>
+                <div id="container-pesan" style="max-height: 250px; overflow-y: auto;">
+                    <p style="font-size: 13px; color: #888; font-style: italic;">Belum ada ucapan. Jadilah yang pertama memberikan ucapan!</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Lightbox untuk Perbesar Foto Galeri -->
+    <div id="modal-galeri" style="display:none; position:fixed; z-index:9999; padding-top:60px; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); text-align:center;">
+        <span onclick="tutupModal()" style="position:absolute; top:20px; right:35px; color:#f1f1f1; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
+        <img id="img-perbesar" style="max-width:85%; max-height:80vh; border-radius:8px; box-shadow:0 5px 25px rgba(0,0,0,0.5);">
+    </div>
+
+    <!-- Hubungkan ke script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
